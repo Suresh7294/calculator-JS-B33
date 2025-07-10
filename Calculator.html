@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modern Calculator</title>
+  <script src="calculator.js"defer></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .calculator {
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+      width: 300px;
+    }
+
+    .display {
+      background-color: #222;
+      color: #0f0;
+      font-size: 32px;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: right;
+      margin-bottom: 20px;
+      height: 60px;
+      overflow: hidden;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .btn {
+      background-color: #ffffff;
+      border: none;
+      padding: 20px;
+      font-size: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .btn:hover {
+      background-color: #dcdcdc;
+    }
+
+    .btn.operator {
+      background-color: #ff9500;
+      color: white;
+    }
+
+    .btn.operator:hover {
+      background-color: #e08900;
+    }
+
+    .btn.equal {
+      grid-column: span 2;
+      background-color: #34c759;
+      color: white;
+    }
+
+    .btn.equal:hover {
+      background-color: #28a745;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button class="btn" onclick="clearDisplay()">C</button>
+      <button class="btn" onclick="appendValue('(')">(</button>
+      <button class="btn" onclick="appendValue(')')">)</button>
+      <button class="btn operator" onclick="appendValue('/')">÷</button>
+
+      <button class="btn" onclick="appendValue('7')">7</button>
+      <button class="btn" onclick="appendValue('8')">8</button>
+      <button class="btn" onclick="appendValue('9')">9</button>
+      <button class="btn operator" onclick="appendValue('*')">×</button>
+
+      <button class="btn" onclick="appendValue('4')">4</button>
+      <button class="btn" onclick="appendValue('5')">5</button>
+      <button class="btn" onclick="appendValue('6')">6</button>
+      <button class="btn operator" onclick="appendValue('-')">−</button>
+
+      <button class="btn" onclick="appendValue('1')">1</button>
+      <button class="btn" onclick="appendValue('2')">2</button>
+      <button class="btn" onclick="appendValue('3')">3</button>
+      <button class="btn operator" onclick="appendValue('+')">+</button>
+
+      <button class="btn" onclick="appendValue('0')">0</button>
+      <button class="btn" onclick="appendValue('.')">.</button>
+      <button class="btn equal" onclick="calculate()">=</button>
+    </div>
+  </div>
+  
+</body>
+</html>
